@@ -19,4 +19,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+
+    url('disposal-wells/', include('tt_disposal_wells.urls')),
 )
