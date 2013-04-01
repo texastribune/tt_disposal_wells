@@ -21,7 +21,7 @@ var svg = !!document.createElementNS && !!document.createElementNS('http://www.w
 
 // end Helpers
 
-var map, map_settings, hash, layers, zoomer, grid;
+var map, map_settings, layers, zoomer, grid;
 var MAPBOX_TILE_ID;
 var width;
 var location_marker = L.marker();
@@ -69,7 +69,6 @@ if (width >= 1300) {
 }
 
 map = L.map('map', map_settings);
-// hash = L.hash(map);
 
 zoomer = L.control.zoom({
     position: 'topright'
