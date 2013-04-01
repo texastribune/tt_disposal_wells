@@ -123,6 +123,10 @@ a {
     line-height: 18px;
 }
 
+.blurb-body .blurb-byline {
+    font-size: 0.85em;
+}
+
 .legend {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1em;
@@ -222,6 +226,10 @@ a {
     -moz-box-shadow:    0 2px 4px 0 #444444;
     -webkit-box-shadow: 0 2px 4px 0 #444444;
     box-shadow:         0 1px 3px 0 #444444;
+}
+
+.clear {
+    clear: both;
 }
 
 @media screen and (min-width: 960px) {
