@@ -177,13 +177,15 @@ function gridLayerGenerator(gridID) {
     var gridLayer = L.utfGrid('http://{s}.tiles.mapbox.com/v3/' + gridID + '/{z}/{x}/{y}.grid.json?callback={cb}');
 
     gridLayer.on('click', function(e) {
-        if(!e.data) { return false; }
+        if (!e.data) { return false; }
 
-        map.panTo(e.latlng);
-        if (map.getZoom() <= 6) {
-            map.setZoom(10);
-        }
         gridLayer.dataForLatLng(e.latlng, function(d) {
+            if (d.data['count'] === 0) { return false; }
+            map.panTo(e.latlng);
+            if (map.getZoom() <= 6) {
+                map.setZoom(10);
+            }
+
             popup.setLatLng(e.latlng).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
         });
     });
