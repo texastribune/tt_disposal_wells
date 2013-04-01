@@ -1,0 +1,68 @@
+{% extends "layouts/full_screen_map.html" %}
+{% load staticfiles %}
+
+{% block apple_app_title %}Texas Wells{% endblock %}
+
+{% block apple_touch_icons %}
+  <link rel="apple-touch-icon-precomposed" href="http://placebear.com/g/57/57.jpg" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://placebear.com/g/72/72.jpg" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://placebear.com/g/114/114.jpg" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://placebear.com/g/144/144.jpg" />
+{% endblock %}
+
+{% block title %}Texas Disposal Wells - The Texas Tribune{% endblock %}
+
+{% block css %}{{ block.super }}
+  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/style.css" %}?v=1">
+{% endblock %}
+
+{% block header_nav_text %}Texas Disposal Wells{% endblock %}
+
+
+{% block blurb_header_text %}Texas Disposal Wells{% endblock %}
+
+{% block blurb_body %}
+  <p>
+    This map shows over 7,000 sites around Texas where wastewater, often from
+    hydraulic fracturing operations, is getting disposed of in Texas. The amount
+    of wastewater being disposed in Texas has skyrocketed with the spread of
+    fracking, because it's cheaper to bury the water in disposal wells than to
+    recycle it. Some of the disposal wells shown on this map are large
+    commercial operations. Others are smaller, open only to oil and gas
+    companies nearby.
+  </p>
+
+  <p>
+    The data used in this map comes from the <a
+    href="http://www.rrc.state.tx.us/">Texas Railroad Commission</a>, the agency
+    regulating oil and gas production.
+  </p>
+
+  <p>
+    <a
+    href="http://www.texastribune.org/2013/03/29/disposal-wells-fracking-waste-stir-water-concerns/">Read
+    more about disposal wells</a>, or <a
+    href="http://www.texastribune.org/series/water-for-fracking/">see other
+    articles in the series on fracking and water</a>.
+  </p>
+{% endblock %}
+
+{% block blurb_byline_text %}
+  By <a href="https://www.texastribune.org/about/staff/ryan-murphy/">Ryan Murphy</a> | April 2, 2013
+{% endblock %}
+
+{% block legend_title_text %}Number of Wells{% endblock %}
+
+{% block legend_labels %}
+  <li><span style='background:rgb(254, 240, 217);'></span>1</li>
+  <li><span style='background:rgb(253, 204, 138);'></span>2</li>
+  <li><span style='background:rgb(252, 141, 89);'></span>5</li>
+  <li><span style='background:rgb(227, 74, 51);'></span>10</li>
+  <li><span style='background:rgb(179, 0, 0);'></span>15+</li>
+{% endblock %}
+
+{% block about_title_text %}Texas Disposal Wells{% endblock %}
+
+{% block extra_script %}{{ block.super }}
+  <script src="{% static "tt_disposal_wells/js/script.js" %}"></script>
+{% endblock %}
