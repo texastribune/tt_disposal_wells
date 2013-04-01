@@ -74,18 +74,18 @@ zoomer = L.control.zoom({
     position: 'topright'
 }).addTo(map);
 
-grid = gridLayerGenerator('texastribune.binning-test');
+grid = gridLayerGenerator('texastribune.texas-disposal-well-hex');
 
 if (window.devicePixelRatio > 1) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-bwno4yra,texastribune.binning-test/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-bwno4yra,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
 
 if (window.devicePixelRatio === 1 || !window.devicePixelRatio) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-3g2hqvcf,texastribune.binning-test/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-3g2hqvcf,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
