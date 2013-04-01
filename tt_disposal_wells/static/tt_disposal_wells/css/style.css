@@ -75,6 +75,7 @@ a {
 
 .geo-controls .geo-locate {
     float: left;
+    margin: 0;
 }
 
 .geo-locate input[type="text"] {
@@ -97,7 +98,6 @@ a {
     position: fixed;
     bottom: 0;
     height: 50px;
-    padding: 0 5px;
     width: 100%;
     background-color: rgb(34,34,34);
     background-color: rgba(34,34,34,0.9);
