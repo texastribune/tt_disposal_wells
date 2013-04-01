@@ -1,0 +1,268 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, .map {
+    height: 100%;
+}
+
+a {
+    color: rgb(0, 137, 144);
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    height: 40px;
+    padding: 0 5px;
+    width: 100%;
+    background-color: rgb(34,34,34);
+    background-color: rgba(34,34,34,0.9);
+    z-index: 4;
+    font-size: 14px;
+    line-height: 38px;
+    /*border-bottom: 1px solid rgb(102,102,102);*/
+}
+
+.main-nav a {
+    margin: 0 0 0 5px;
+}
+
+.main-nav img {
+    height: 20px;
+    margin: 10px 0;
+}
+
+.main-nav button {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 7px 12px;
+}
+
+.header-nav {
+    position: fixed;
+    top: 40px;
+    padding: 0 10px;
+    width: 100%;
+    background-color: rgb(247,247,247);
+    background-color: rgba(247,247,247,0.9);
+    z-index: 5;
+    line-height: 20px;
+}
+
+.header-nav h5 {
+    margin: 5px 0;
+}
+
+.geo-controls {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 40px;
+    z-index: 6;
+}
+
+.geo-controls .major {
+    float: left;
+    height: 40px;
+    margin: 0 5px 0 0;
+    width: 100px;
+}
+
+.geo-controls .embed-me {
+    display: none;
+}
+
+.geo-controls .geo-locate {
+    float: left;
+}
+
+.geo-locate input[type="text"] {
+    height: 40px;
+    width: 200px;
+    font-size: 12px;
+}
+
+.geo-locate input[type="text"]:focus {
+    border-color: rgb(255, 204, 32);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px rgba(255, 204, 32, 0.6);
+}
+
+.geo-locate button {
+    height: 40px;
+    width: 40px;
+}
+
+.control-nav {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    padding: 0 5px;
+    width: 100%;
+    background-color: rgb(34,34,34);
+    background-color: rgba(34,34,34,0.9);
+    z-index: 5;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.blurb-container {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    width: 250px;
+    padding: 10px;
+    background-color: rgb(247,247,247);
+    background-color: rgba(247,247,247,0.9);
+    font-family: "Myriad Pro",Arial,sans-serif;
+}
+
+.blurb-body p {
+    font-size: 0.9em;
+    line-height: 18px;
+}
+
+.legend {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.legend-title {
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 90%;
+}
+.legend-scale ul {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+.legend-scale ul li {
+    display: block;
+    float: left;
+    width: 45px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 75%;
+    list-style: none;
+}
+.legend-labels li span {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 45px;
+    margin: 0 0 3px 0;
+}
+.legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.modal {
+    margin: 0;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    z-index: 7;
+    overflow-y: auto;
+    background-color: #EEEEEE;
+}
+
+.modal .close {
+    z-index: 10;
+}
+
+.modal-backdrop {
+    z-index: 6;
+}
+
+.modal-body {
+    max-height: none;
+    padding-top: 0;
+}
+
+.modal-body p {
+    font-size: 0.8em;
+    line-height: 16px;
+}
+
+.leaflet-control-zoom {
+    display: none;
+}
+
+
+.leaflet-popup-content-wrapper {
+    padding: 5px;
+    border-radius: 0;
+}
+
+.leaflet-popup-content {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    padding: 3px 7px 0 0;
+    font-size: 30px;
+    height: 20px;
+}
+
+.shadow {
+    -moz-box-shadow:    0 2px 4px 0 #444444;
+    -webkit-box-shadow: 0 2px 4px 0 #444444;
+    box-shadow:         0 1px 3px 0 #444444;
+}
+
+@media screen and (min-width: 960px) {
+
+    .main-nav {
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .main-nav img {
+        height: 30px;
+    }
+
+    .main-nav .about-button {
+        display: none;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .control-nav {
+        display: none;
+    }
+
+    .geo-controls {
+        top: 5px;
+    }
+
+    .geo-controls .embed-me {
+        display: inline;
+    }
+
+    .geo-locate input[type="text"] {
+        font-size: 15px;
+    }
+
+    .blurb-container {
+        display: inline;
+    }
+
+    .leaflet-control-zoom {
+        display: inline;
+        top: 45px;
+    }
+
+}
