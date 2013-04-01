@@ -195,6 +195,6 @@ if (getParamByName('lat') && getParamByName('lng')) {
     checkGeoAgainstGrid(parseFloat(getParamByName('lat')), parseFloat(getParamByName('lng')));
 }
 
-if (getParamByName('embed') === 'true/') {
+if (getParamByName('embed') === 'true') {
     $('div.leaflet-control-zoom').addClass('leaflet-control-zoom-override');
 }
