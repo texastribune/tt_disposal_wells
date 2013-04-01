@@ -12,13 +12,7 @@
 
 {% block title %}Texas Disposal Wells - The Texas Tribune{% endblock %}
 
-{% block css %}
-  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/bootstrap.min.css" %}">
-  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/font-awesome.min.css" %}">
-  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.css" %}">
-  <!--[if lte IE 8]>
-      <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.ie.css" %}">
-  <![endif]-->
+{% block css %}{{ block.super }}
   <link rel="stylesheet" href="{% static "tt_disposal_wells/css/style.css" %}">
 {% endblock %}
 

@@ -12,7 +12,27 @@
 
   {% block title_container %}<title>{% block title %}{% endblock %}</title>{% endblock %}
 
-  {% block css %}{% endblock %}
+  {% block css %}
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.css" %}">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.ie.css" %}">
+    <![endif]-->
+    <link rel="stylesheet" href="{% static "css/external/add2home.css" %}">
+  {% endblock %}
+
+  {% block add_to_home_config_container %}
+    <script>
+      var addToHomeConfig = {
+        animationIn: 'bubble',
+        animationOut: 'bubble',
+        expire: 2,
+        touchIcon: true
+      };
+    </script>
+  {% endblock %}
+
 </head>
 
 <body>
@@ -89,6 +109,7 @@
     <script src="{% static "tt_disposal_wells/js/external/leaflet.js" %}"></script>
     <script src="{% static "tt_disposal_wells/js/external/fastclick.js" %}"></script>
     <script src="{% static "tt_disposal_wells/js/external/npr.leaflet.utfgrid.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/add2home.js" %}"></script>
   {% endblock %}
 </body>
 </html>
