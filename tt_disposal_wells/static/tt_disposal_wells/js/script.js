@@ -164,12 +164,12 @@ function checkGeoAgainstGrid(lat, lng) {
     map.setView(loc, 10);
 
     grid.dataForLatLng(loc, function(d) {
-        // if (!d.data) {
-        //     popup.setLatLng(loc).setContent('<div># of Wells: 0</div>').openOn(map);
-        //     return false;
-        // }
+        if (d.data['count'] === 0) {
+            popup.setLatLng(loc).setContent('<div># of Wells: 0</div>').openOn(map);
+            return false;
+        }
 
-        // popup.setLatLng(loc).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
+        popup.setLatLng(loc).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
     });
 }
 

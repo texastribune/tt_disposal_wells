@@ -13,7 +13,7 @@
 {% block title %}Texas Disposal Wells - The Texas Tribune{% endblock %}
 
 {% block css %}{{ block.super }}
-  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/style.css" %}">
+  <link rel="stylesheet" href="{% static "tt_disposal_wells/css/style.css" %}?v=1">
 {% endblock %}
 
 {% block header_nav_text %}Texas Disposal Wells{% endblock %}
@@ -45,6 +45,10 @@
     href="http://www.texastribune.org/series/water-for-fracking/">see other
     articles in the series on fracking and water</a>.
   </p>
+{% endblock %}
+
+{% block blurb_byline_text %}
+  By <a href="https://www.texastribune.org/about/staff/ryan-murphy/">Ryan Murphy</a> | April 2, 2013
 {% endblock %}
 
 {% block legend_title_text %}Number of Wells{% endblock %}
