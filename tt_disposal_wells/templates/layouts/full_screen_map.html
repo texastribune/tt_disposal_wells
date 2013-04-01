@@ -1,0 +1,124 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="{% block apple_app_title %}{% endblock %}">
+
+  {% block apple_touch_icons %}{% endblock %}
+
+  {% block title_container %}<title>{% block title %}{% endblock %}</title>{% endblock %}
+
+  {% block css %}
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.css" %}">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/leaflet.ie.css" %}">
+    <![endif]-->
+    <link rel="stylesheet" href="{% static "css/external/add2home.css" %}">
+  {% endblock %}
+
+  {% block add_to_home_config_container %}
+    <script>
+      var addToHomeConfig = {
+        animationIn: 'bubble',
+        animationOut: 'bubble',
+        expire: 2,
+        touchIcon: true
+      };
+    </script>
+  {% endblock %}
+
+</head>
+
+<body>
+
+  {% block main_nav_container %}
+    <div id="main-nav" class="main-nav shadow">
+      <a href="http://www.texastribune.org/" target="_blank"><img src="{% static "tt_disposal_wells/images/txtrib-logo-white.svg" %}" jGalt="The Texas Tribune"></a>
+      <button class="btn about-button" id="about-button" data-toggle="modal" data-target="#about-modal"><i class="icon-info-sign"></i></button>
+    </div>
+  {% endblock %}
+
+  {% block header_nav_container %}
+    <div id="header-nav" class="header-nav shadow">
+      <h5>{% block header_nav_text %}{% endblock %}
+    </div>
+  {% endblock %}
+
+  {% block geo_controls_container %}
+    <div id="geo-controls" class="geo-controls">
+      <!-- <button id="embed-me" class="btn major embed-me"><i class="icon-share"></i> Embed This!</button> -->
+      <button id="find-me" class="btn major find-me"><i class="icon-map-marker"></i> Find Me!</button>
+      <form id="geo-locate" class="input-append geo-locate">
+        <input id="geo-input" class="span2" type="text" placeholder="ZIP Code, etc.">
+        <button id="geo-fire" class="btn geo-fire" type="button"><i class="icon-search"></i></button>
+      </form>
+    </div>
+  {% endblock %}
+
+  {% block map_container %}
+    <div id="map" class="map"></div>
+  {% endblock %}
+
+  {% block blurb_container %}
+    <div id="blurb-container" class="blurb-container shadow">
+      <h4>{% block blurb_header_text %}{% endblock %}</h4>
+
+      {% block blurb_body_container %}
+        <div id="blurb-body" class="blurb-body">
+          {% block blurb_body %}{% endblock %}
+
+          {% block legend_container %}
+            <div id='legend' class='legend'>
+              <div class='legend-title'>{% block legend_title_text %}{% endblock %}</div>
+              <div class='legend-scale'>
+                <ul class='legend-labels'>
+                  {% block legend_labels %}{% endblock %}
+                </ul>
+              </div>
+            </div>
+          {% endblock %}
+
+          {% block blurb_byline_container %}
+            <div class="blurb-byline">
+              <p>{% block blurb_byline_text %}{% endblock %}</p>
+            </div>
+          {% endblock %}
+
+        </div>
+      {% endblock %}
+
+    </div>
+  {% endblock %}
+
+  {% block container_nav_container %}
+    <div id="control-nav" class="control-nav shadow"></div>
+  {% endblock %}
+
+
+  {% block about_container %}
+    <div class="modal hide" id="about-modal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h4>{% block about_title_text %}{% endblock %}</h4>
+      </div>
+      <div class="modal-body">{% block about_body %}{% endblock %}</div>
+    </div>
+  {% endblock %}
+
+  {% block extra_script %}
+    <script src="{% static "tt_disposal_wells/js/external/jquery.min.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/bootstrap.min.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/leaflet.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/fastclick.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/npr.leaflet.utfgrid.js" %}"></script>
+    <script src="{% static "tt_disposal_wells/js/external/add2home.js" %}"></script>
+  {% endblock %}
+</body>
+</html>
+
