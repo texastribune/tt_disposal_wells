@@ -192,5 +192,9 @@ function gridLayerGenerator(gridID) {
 }
 
 if (getParamByName('lat') && getParamByName('lng')) {
-    checkGeoAgainstGrid(parseFloat(getParamByName('lat')), getParamByName('lng'));
+    checkGeoAgainstGrid(parseFloat(getParamByName('lat')), parseFloat(getParamByName('lng')));
+}
+
+if (getParamByName('embed') === 'true/') {
+    $('div.leaflet-control-zoom').addClass('leaflet-control-zoom-override');
 }

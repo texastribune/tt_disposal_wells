@@ -37,7 +37,6 @@ a {
     position: absolute;
     top: 5px;
     right: 15px;
-    padding: 7px 12px;
 }
 
 .header-nav {
@@ -80,7 +79,7 @@ a {
 
 .geo-locate input[type="text"] {
     height: 30px;
-    width: 200px;
+    width: 150px;
     font-size: 12px;
 }
 
@@ -197,6 +196,10 @@ a {
     display: none;
 }
 
+.leaflet-control-zoom-override {
+    display: inline;
+    top: 65px;
+}
 
 .leaflet-popup-content-wrapper {
     padding: 5px;
