@@ -78,14 +78,14 @@ grid = gridLayerGenerator('texastribune.texas-disposal-well-hex');
 
 if (window.devicePixelRatio > 1) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-bwno4yra,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-yvp767oc,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
 
 if (window.devicePixelRatio === 1 || !window.devicePixelRatio) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-3g2hqvcf,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-sit023yd,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
