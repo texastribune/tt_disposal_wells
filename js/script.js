@@ -48,7 +48,7 @@ map_settings = {  // base settings optimized for mobile
     center: [31.5, -100.0],
     zoom: 5,
     minZoom: 5,
-    maxZoom: 15,
+    maxZoom: 14,
     scrollWheelZoom: false,
     attributionControl: false,
     zoomControl: false
