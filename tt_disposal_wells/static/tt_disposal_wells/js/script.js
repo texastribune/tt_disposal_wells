@@ -46,7 +46,7 @@ if(!svg) {
 
 map_settings = {  // base settings optimized for mobile
     center: [31.5, -100.0],
-    zoom: 5,
+    zoom: 6,
     minZoom: 5,
     maxZoom: 14,
     scrollWheelZoom: false,
@@ -56,7 +56,7 @@ map_settings = {  // base settings optimized for mobile
 
 width = $(window).width();
 
-if (width >= 599) {
+if (width >= 959) {
     map_settings.center = [31.784, -101.668];
     map_settings.zoom = 6;
 }
