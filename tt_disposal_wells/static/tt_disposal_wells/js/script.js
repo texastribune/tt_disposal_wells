@@ -48,7 +48,7 @@ map_settings = {  // base settings optimized for mobile
     center: [31.5, -100.0],
     zoom: 5,
     minZoom: 5,
-    maxZoom: 15,
+    maxZoom: 14,
     scrollWheelZoom: false,
     attributionControl: false,
     zoomControl: false
@@ -78,14 +78,14 @@ grid = gridLayerGenerator('texastribune.texas-disposal-well-hex');
 
 if (window.devicePixelRatio > 1) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-bwno4yra,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-yvp767oc,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
 
 if (window.devicePixelRatio === 1 || !window.devicePixelRatio) {
     layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-3g2hqvcf,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
+        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-sit023yd,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
 }
@@ -177,13 +177,15 @@ function gridLayerGenerator(gridID) {
     var gridLayer = L.utfGrid('http://{s}.tiles.mapbox.com/v3/' + gridID + '/{z}/{x}/{y}.grid.json?callback={cb}');
 
     gridLayer.on('click', function(e) {
-        if(!e.data) { return false; }
+        if (!e.data) { return false; }
 
-        map.panTo(e.latlng);
-        if (map.getZoom() <= 6) {
-            map.setZoom(10);
-        }
         gridLayer.dataForLatLng(e.latlng, function(d) {
+            if (d.data['count'] === 0) { return false; }
+            map.panTo(e.latlng);
+            if (map.getZoom() <= 6) {
+                map.setZoom(10);
+            }
+
             popup.setLatLng(e.latlng).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
         });
     });
