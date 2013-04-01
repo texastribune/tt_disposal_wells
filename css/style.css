@@ -79,7 +79,7 @@ a {
 
 .geo-locate input[type="text"] {
     height: 30px;
-    width: 150px;
+    width: 125px;
     font-size: 12px;
 }
 
@@ -131,6 +131,7 @@ a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1em;
     margin: 5px 0;
+    display: block;
 }
 
 .legend-title {
@@ -265,6 +266,7 @@ a {
 
     .geo-locate input[type="text"] {
         font-size: 15px;
+        width: 200px;
     }
 
     .blurb-container {
