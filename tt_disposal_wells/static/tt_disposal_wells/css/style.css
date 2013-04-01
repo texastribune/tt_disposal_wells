@@ -71,6 +71,7 @@ a {
 
 .geo-controls .embed-me {
     display: none;
+    width: 125px;
 }
 
 .geo-controls .geo-locate {
