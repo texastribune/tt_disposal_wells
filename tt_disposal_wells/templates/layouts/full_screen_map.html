@@ -72,23 +72,27 @@
       {% block blurb_body_container %}
         <div id="blurb-body" class="blurb-body">
           {% block blurb_body %}{% endblock %}
+
+          {% block legend_container %}
+            <div id='legend' class='legend'>
+              <div class='legend-title'>{% block legend_title_text %}{% endblock %}</div>
+              <div class='legend-scale'>
+                <ul class='legend-labels'>
+                  {% block legend_labels %}{% endblock %}
+                </ul>
+              </div>
+            </div>
+          {% endblock %}
+
+          {% block blurb_byline_container %}
+            <div class="blurb-byline">
+              <p>{% block blurb_byline_text %}{% endblock %}</p>
+            </div>
+          {% endblock %}
+
         </div>
       {% endblock %}
 
-      {% block legend_container %}
-        <div id='legend' class='legend'>
-          <div class='legend-title'>{% block legend_title_text %}{% endblock %}</div>
-          <div class='legend-scale'>
-            <ul class='legend-labels'>
-              {% block legend_labels %}{% endblock %}
-            </ul>
-          </div>
-        </div>
-      {% endblock %}
-
-      <div class="blurb-byline">
-        <p>{% block blurb_byline_text %}{% endblock %}</p>
-      </div>
     </div>
   {% endblock %}
 
