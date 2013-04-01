@@ -59,13 +59,11 @@ width = $(window).width();
 if (width >= 599) {
     map_settings.center = [31.784, -101.668];
     map_settings.zoom = 6;
-    map_settings.minZoom = 6;
 }
 
 if (width >= 1300) {
     map_settings.center = [31.784, -100.668];
     map_settings.zoom = 7;
-    map_settings.minZoom = 7;
 }
 
 map = L.map('map', map_settings);
