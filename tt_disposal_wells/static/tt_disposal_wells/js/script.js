@@ -41,7 +41,7 @@ if (!navigator.geolocation) {
 }
 
 if(!svg) {
-    $header.find('img').attr('src', 'images/txtrib-logo-white-271x30px.png');
+    $header.find('img').attr('src', 'http://s3.amazonaws.com/static.texastribune.org/common/tt_disposal_wells/images/txtrib-logo-white-271x30px.png');
 }
 
 map_settings = {  // base settings optimized for mobile
