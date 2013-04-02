@@ -69,7 +69,7 @@ a {
     width: 100px;
 }
 
-.geo-controls .embed-me {
+.geo-controls .embed-this {
     display: none;
     width: 125px;
 }
@@ -174,7 +174,7 @@ a {
     clear: both;
 }
 
-.modal {
+.about-modal {
     margin: 0;
     width: 90%;
     height: 90%;
@@ -185,7 +185,7 @@ a {
     background-color: #EEEEEE;
 }
 
-.modal .close {
+.about-modal .close {
     z-index: 10;
 }
 
@@ -193,14 +193,26 @@ a {
     z-index: 6;
 }
 
-.modal-body {
+.about-modal .modal-body {
     max-height: none;
     padding-top: 0;
 }
 
-.modal-body p {
+.about-modal .modal-body p {
     font-size: 0.8em;
     line-height: 16px;
+}
+
+.embed-modal {
+    z-index: 7;
+    background-color: #EEEEEE;
+}
+
+.embed-body-modal-code {
+    white-space: normal;
+    color: rgb(255, 194, 0);
+    background-color: rgb(34,34,34);
+    background-color: rgba(34,34,34,0.9);
 }
 
 .leaflet-control-zoom {
@@ -297,7 +309,7 @@ a {
         top: 5px;
     }
 
-    .geo-controls .embed-me {
+    .geo-controls .embed-this {
         display: inline;
     }
 
