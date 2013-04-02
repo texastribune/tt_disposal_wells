@@ -70,7 +70,7 @@
       <h4>{% block blurb_header_text %}{% endblock %}</h4>
 
       {% block blurb_body_container %}
-        <div id="blurb-body" class="blurb-body">
+        <div id="about-blurb-body" class="blurb-body">
           {% block blurb_body %}{% endblock %}
 
           {% block legend_container %}
@@ -107,7 +107,7 @@
         <button type="button" class="close" data-dismiss="modal">X</button>
         <h4>{% block about_title_text %}{% endblock %}</h4>
       </div>
-      <div class="modal-body">{% block about_body %}{% endblock %}</div>
+      <div class="modal-body about-body">{% block about_body %}{% endblock %}</div>
     </div>
   {% endblock %}
 

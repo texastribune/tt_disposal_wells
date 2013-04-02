@@ -118,9 +118,9 @@ $geo_fire.on('click', function() {
 });
 
 $('#about-button').on('click', function() {
-    $modal_body = $('.modal-body');
+    $modal_body = $('.about-body');
     if($modal_body.children().length < 1) {
-        $modal_body.html($('#blurb-body').html());
+        $modal_body.html($('#about-blurb-body').html());
     }
 });
 
