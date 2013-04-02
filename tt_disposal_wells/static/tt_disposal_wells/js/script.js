@@ -46,7 +46,7 @@ if(!svg) {
 
 map_settings = {  // base settings optimized for mobile
     center: [31.5, -100.0],
-    zoom: 6,
+    zoom: 5,
     minZoom: 5,
     maxZoom: 14,
     scrollWheelZoom: false,
