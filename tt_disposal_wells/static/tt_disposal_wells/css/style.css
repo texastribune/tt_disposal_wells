@@ -129,7 +129,7 @@ a {
 }
 
 .blurb-byline {
-  font-size: 0.85em;
+  font-size: 1em;
   clear: both;
 }
 
@@ -325,6 +325,10 @@ a {
     .leaflet-control-zoom {
         display: inline;
         top: 45px;
+    }
+
+    .blurb-byline {
+        font-size: 0.85em;
     }
 
 }
