@@ -275,6 +275,10 @@ a {
     text-align: center;
 }
 
+.social_links > li:last-child {
+    border-right: medium none;
+}
+
 .social_links a {
     color: rgb(119, 119, 119);
     display: block;
