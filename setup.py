@@ -27,7 +27,7 @@ for dirpath, dirnames, filenames in os.walk('tt_disposal_wells'):
 
 setup(
     name='tt_disposal_wells',
-    version='0.4.1alpha',
+    version='0.4.1',
     description='Texas Tribune: tt_disposal_wells',
     author='Tribune Tech',
     author_email='tech@texastribune.org',
