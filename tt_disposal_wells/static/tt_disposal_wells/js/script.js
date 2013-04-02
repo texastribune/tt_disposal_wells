@@ -79,6 +79,9 @@ if (window.devicePixelRatio > 1) {
         L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-yvp767oc,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
         grid
     ]);
+
+    map.options.maxZoom -= 1;
+    map.options.minZoom -= 1;
 }
 
 if (window.devicePixelRatio === 1 || !window.devicePixelRatio) {
