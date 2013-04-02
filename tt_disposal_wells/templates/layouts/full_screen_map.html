@@ -38,6 +38,9 @@
     _gaq.push(['_setAccount', 'UA-9827490-1']);
     _gaq.push(['_trackPageview']);
   </script>
+
+  <script>var _sf_startpt=(new Date()).getTime()</script>
+
 </head>
 
 <body>
@@ -142,6 +145,39 @@
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+      })();
+    </script>
+
+    <script type='text/javascript'>
+      var _sf_async_config={};
+      /** CONFIGURATION START **/
+      _sf_async_config.uid = 14324;
+      _sf_async_config.domain = 'texastribune.org';
+      if (window.tt && tt.currentPage) {
+        if (tt.currentPage.sections) {
+          _sf_async_config.sections = tt.currentPage.sections.join(',');
+        }
+        if (tt.currentPage.authors) {
+          _sf_async_config.authors = tt.currentPage.authors.join(',');
+        } else if (tt.currentPage.authorsText) {
+          _sf_async_config.authors = tt.currentPage.authorsText;
+        }
+      }
+      /** CONFIGURATION END **/
+      (function(){
+        function loadChartbeat() {
+          window._sf_endpt=(new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src',
+             (('https:' == document.location.protocol) ? 'https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/' : 'http://static.chartbeat.com/') +
+             'js/chartbeat.js');
+          document.body.appendChild(e);
+        };
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+            loadChartbeat : function() { oldonload(); loadChartbeat(); };
       })();
     </script>
   {% endblock %}
