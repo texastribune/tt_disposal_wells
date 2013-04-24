@@ -4,10 +4,6 @@ $(document).ready( function() {
     new FastClick(document.body);
 });
 
-L.utfGrid = function(url, options) {
-    return new L.UtfGrid(url, options);
-};
-
 function getParamByName(name) {
     var _name = name.replace(/[\[]/, '\\\\[').replace(/[\]]/, '\\\\]');
     var regex = new RegExp('[\\?&]' + _name + '=([^&#]*)');
@@ -72,33 +68,23 @@ zoomer = L.control.zoom({
     position: 'topright'
 }).addTo(map);
 
+layers = L.mapbox.tileLayer('texastribune.map-sit023yd,texastribune.texas-disposal-well-hex', {
+    detectRetina: true,
+    retinaVersion: 'texastribune.map-yvp767oc,texastribune.texas-disposal-well-hex'
+});
+
 grid = gridLayerGenerator('texastribune.texas-disposal-well-hex');
 
-if (window.devicePixelRatio > 1) {
-    layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-yvp767oc,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
-        grid
-    ]);
-
-    map.options.maxZoom -= 1;
-    map.options.minZoom -= 1;
-}
-
-if (window.devicePixelRatio === 1 || !window.devicePixelRatio) {
-    layers = L.layerGroup([
-        L.tileLayer('http://{s}.tiles.mapbox.com/v3/texastribune.map-sit023yd,texastribune.texas-disposal-well-hex/{z}/{x}/{y}.png', { detectRetina: true }),
-        grid
-    ]);
-}
-
 map.addLayer(layers);
+map.addLayer(grid);
 
 $find_me.on('click', function() {
     $find_me.find('i').removeClass().addClass('icon-refresh icon-spin');
     navigator.geolocation.getCurrentPosition( function(position) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
-        geocode(lat + ', ' + lng);
+        var loc = L.latLng(lat, lng);
+        checkGeoAgainstGrid(loc);
         $find_me.find('i').removeClass().addClass('icon-map-marker');
     }, function(error) {
         $find_me.find('i').removeClass().addClass('icon-remove');
@@ -154,41 +140,38 @@ function geocode(request) {
           alert('The address that returned is not in Texas. Please try making your query more detailed.');
         }
 
-        checkGeoAgainstGrid(lat, lng);
+        var loc = L.latLng(lat, lng);
+        checkGeoAgainstGrid(loc);
       }
     }
   });
 }
 
-function checkGeoAgainstGrid(lat, lng) {
-    var loc = L.latLng(lat, lng);
+function checkGeoAgainstGrid(loc) {
     map.setView(loc, 10);
 
-    grid.dataForLatLng(loc, function(d) {
-        if (d.data['count'] === 0) {
+    grid.getData(loc, function(d) {
+        var count = d.count;
+        if (!count) {
             popup.setLatLng(loc).setContent('<div># of Wells: 0</div>').openOn(map);
             return false;
         }
 
-        popup.setLatLng(loc).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
+        popup.setLatLng(loc).setContent('<div># of Wells: ' + count + '</div>').openOn(map);
     });
 }
 
 function gridLayerGenerator(gridID) {
-    var gridLayer = L.utfGrid('http://{s}.tiles.mapbox.com/v3/' + gridID + '/{z}/{x}/{y}.grid.json?callback={cb}');
+    var gridLayer = L.mapbox.gridLayer(gridID);
 
     gridLayer.on('click', function(e) {
-        if (!e.data) { return false; }
+        var count = e.data.count;
+        if (!count) { return false; }
 
-        gridLayer.dataForLatLng(e.latlng, function(d) {
-            if (d.data['count'] === 0) { return false; }
-            map.panTo(e.latlng);
-            if (map.getZoom() <= 6) {
-                map.setZoom(10);
-            }
+        map.panTo(e.latLng);
+        if (map.getZoom() <= 6) { map.setZoom(10); }
 
-            popup.setLatLng(e.latlng).setContent('<div># of Wells: ' + d.data['count'] + '</div>').openOn(map);
-        });
+        popup.setLatLng(e.latLng).setContent('<div># of Wells: ' + count + '</div>').openOn(map);
     });
 
     return gridLayer;
