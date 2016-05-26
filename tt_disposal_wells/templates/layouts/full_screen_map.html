@@ -15,7 +15,7 @@
   {% block css %}
     <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/mapbox.css" %}">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v1.6.4/mapbox.css">
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="{% static "tt_disposal_wells/css/external/mapbox.ie.css" %}">
     <![endif]-->
@@ -64,10 +64,12 @@
     <div id="geo-controls" class="geo-controls">
       <button id="embed-this" class="btn major embed-this" data-toggle="modal" data-target="#embed-modal"><i class="icon-share"></i> Embed This!</button>
       <button id="find-me" class="btn major find-me"><i class="icon-map-marker"></i> Find Me!</button>
+      {% comment "Mapquest's geocoder is busted, break this for now." %}
       <form id="geo-locate" class="input-append geo-locate">
         <input id="geo-input" class="span2" type="text" placeholder="ZIP Code, etc.">
         <button id="geo-fire" class="btn geo-fire" type="button"><i class="icon-search"></i></button>
       </form>
+      {% endcomment %}
     </div>
   {% endblock %}
 
@@ -137,7 +139,7 @@
   {% block extra_script %}
     <script src="{% static "tt_disposal_wells/js/external/jquery.min.js" %}"></script>
     <script src="{% static "tt_disposal_wells/js/external/bootstrap.min.js" %}"></script>
-    <script src="{% static "tt_disposal_wells/js/external/mapbox.js" %}"></script>
+    <script src="https://api.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
     <script src="{% static "tt_disposal_wells/js/external/fastclick.js" %}"></script>
     <script src="{% static "tt_disposal_wells/js/external/add2home.js" %}"></script>
 
@@ -184,4 +186,3 @@
   {% endblock %}
 </body>
 </html>
-
